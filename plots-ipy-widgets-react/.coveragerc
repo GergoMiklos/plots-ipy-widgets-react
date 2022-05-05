@@ -1,0 +1,2 @@
+[run]
+omit = plots_ipy_widgets_react/tests/*

@@ -1,0 +1,5 @@
+{
+  "load_extensions": {
+    "plots_ipy_widgets_react/extension": true
+  }
+}
