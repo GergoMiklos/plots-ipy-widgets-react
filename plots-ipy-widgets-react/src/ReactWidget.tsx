@@ -1,29 +1,35 @@
 import React from 'react';
 import { WidgetModel } from '@jupyter-widgets/base';
 import { useModelState, WidgetModelContext } from './hooks/widget-model';
+import { TextInput } from "plots-widgets";
 
 interface WidgetProps {
   model: WidgetModel;
 }
 
-function ReactWidget(props: WidgetProps) {
-  const [name, setName] = useModelState('value');
-  const inputStyle = {
-    padding: '7px',
+function ReactWidget({ model }: WidgetProps) {
+  const [value, setValue] = useModelState('value');
+  const label = model.get('label')
+  const containerStyle = {
+    padding: '0.5em',
     background: 'whitesmoke',
-    border: '1px solid gray',
-    borderRadius: '4px',
+    borderRadius: '0.5em'
   }
 
-  return (
-    <div className="Widget">
-      <h1>Hello {name}</h1>
-      <input
-        style={inputStyle}
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+    // <input
+    //     style={inputStyle}
+    //     type="text"
+    //     value={name}
+    //     onChange={(e) => setName(e.target.value)}
+    // />
+
+    return (
+    <div className="Widget" style={containerStyle}>
+        <TextInput
+            label={label}
+            value={value}
+            onChange={({ value }: any) => setValue(value)}
+        />
     </div>
   );
 }

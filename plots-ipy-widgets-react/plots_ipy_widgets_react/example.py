@@ -26,3 +26,6 @@ class ExampleWidget(DOMWidget):
     # Your widget state goes here. Make sure to update the corresponding
     # JavaScript widget state (defaultModelProperties) in widget.ts
     value = Unicode('Jupyter').tag(sync=True)
+    label = Unicode('Your input:').tag(sync=True)
+
+    # TODO: use json formatted data here? (dumps here or in plotolo and loads here in widget.tsx), so dont have to create here every class
